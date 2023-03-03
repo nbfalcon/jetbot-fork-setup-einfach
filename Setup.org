@@ -1,0 +1,22 @@
+#+TITLE: Setup
+* Setup
+#+begin_src shell
+cd ~
+
+git clone https://github.com/nbfalcon/jetbot-fork-setup-einfach.git
+cd jetbot-setup/
+
+sudo apt install python3 python3-pip build-essential
+python3 -mpip install . # Installiere das jetbot pacakge aus einem lokalen Ordner
+
+python3 # Python 3 Shell: ab hier sollte alles funktionieren
+# >> from jetbot.robot import Robot
+#+end_src
+* Was habe ich in meinem fork verändert?
+- Alle Veränderungen sind auf setup.py beschränkt
+  1. build_libs() entfällt (d.h. keine CUDA examples)
+  2. install_requires: 'pyserial' hinzugefügt, eine fehlende transitive dependency; dadurch wird ein Fehler vermieden
+* Verwendung?
+- Roboter :: from jetbot.robot import Robot
+- Camera :: from jetbot.camera import Camera
+- Display :: siehe script [[jetbot/apps/stats.py]] (die Standard-Anzeige)
